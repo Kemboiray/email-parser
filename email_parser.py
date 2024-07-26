@@ -1,8 +1,15 @@
 import os
+import logging
+import json
 import openai
 from InquirerPy import inquirer
 from InquirerPy.base.control import Choice
 
+logger = logging.getLogger("email_parser")
+log_format = "%(levelname)s:%(name)s:%(asctime)s - %(message)s"
+logging.basicConfig(
+    level=logging.INFO, format=log_format, filename="./email_parser.log"
+)
 API_KEY = os.getenv("API_KEY")
 
 
@@ -41,6 +48,14 @@ def get_user_content():
             continue
 
 
+def is_valid_json(arg: str) -> bool:
+    try:
+        json.loads(arg)
+        return True
+    except ValueError:
+        return False
+
+
 def main():
     model = select_model()
     system_content = get_system_content()
@@ -60,6 +75,10 @@ def main():
             max_tokens=128,
         )
         response = chat_completion.choices[0].message.content
+        if is_valid_json(response):
+            logger.info(f"{model} returned\n{response}")
+        else:
+            logger.error(f"{model} returned\n{response}")
         print("Data:\n", response)
     except openai.RateLimitError:
         print("Sorry. API rate limit exceeded, please try again later.")

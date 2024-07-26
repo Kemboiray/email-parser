@@ -4,7 +4,9 @@
 
 ### System Prompt
 
-You will be provided with an email or email letterhead. Parse it and construct the sender's signature in JSON format.
+```
+You will be provided with an email or email letterhead. Parse it and construct
+the sender's signature in JSON format.
 
 For example:
 '''
@@ -32,18 +34,23 @@ For example:
         }
     }
 '''
+```
 
 ### User Prompt
 
+```
 aqwasa sadas
+```
 
 #### LLaMA-3.1 Chat (8B) Response
 
+```
 It seems like you provided some random characters instead of an email or email letterhead. Could you please provide the actual email or email letterhead you'd like me to parse? I'll be happy to help you construct the sender's signature in JSON format.
+```
 
 #### GPT-3.5 Turbo Response
 
-```json
+```
 {
     "__sig__": {
         "name": "aqwasa sadas",
@@ -61,6 +68,7 @@ It seems like you provided some random characters instead of an email or email l
 
 ### System Prompt
 
+```
 You will be provided with an email or email letterhead. Parse it and construct the sender's signature in JSON format.
 
 For example:
@@ -91,18 +99,23 @@ For example:
 '''
 
 If the content is invalid or cannot be parsed, return an empty JSON object (i.e {})
+```
 
 ### User Prompt
 
+```
 aqwasa sadas
+```
 
 #### LLaMA-3.1 Chat (8B) Response
 
+```
 It seems like you didn't provide an email or email letterhead. Please provide the text, and I'll be happy to help you parse it and construct the sender's signature in JSON format.
+```
 
 #### GPT-3.5 Turbo Response
 
-```json
+```
 {
     "__sig__": {
         "name": "",
@@ -120,6 +133,7 @@ It seems like you didn't provide an email or email letterhead. Please provide th
 
 ### System Prompt
 
+```
 You will be provided with an email or email letterhead. Parse it and construct the sender's signature in JSON format. If the content is invalid or cannot be parsed, return an empty JSON object (i.e {})
 
 For example:
@@ -162,25 +176,31 @@ Case 2
 
     {}
 '''
+```
 
 ### User Prompt 1
 
+```
 aqwasa sadas
+```
 
 #### LLaMA-3.1 Chat (8B) Response
 
+```
 {}
 
 The input is not a valid email or email letterhead, so I couldn't parse it to construct a signature in JSON format.
+```
 
 #### GPT-3.5 Turbo Response
 
-```json
+```
 {}
 ```
 
 ### User Prompt 2
 
+```
 Let's see what's Rumbling...
 
 Summer is the season for spending quality time with grill-friends, getting some Vitamin ‘sea’, and staying cool with trending videos on Rumble. Catch up on shocking headlines and travel news, plus Rumble Studio, a game-changer for the creator economy, and ad-free videos with Rumble Premium.
@@ -192,12 +212,13 @@ Rumble LLC
 (800) 555-1133
 <joe.blow@romnle.net>
 <www.rumble.net>
+```
 
 #### LLaMA-3.1 Chat (8B) Response
 
+```
 Here is the parsed sender's signature in JSON format:
 
-```
 {
   "__sig__": {
     "name": "Joe Blow",
@@ -213,7 +234,7 @@ Here is the parsed sender's signature in JSON format:
 
 #### GPT-3.5 Turbo Response
 
-```json
+```
 {
     "__sig__": {
         "name": "Joe Blow",
