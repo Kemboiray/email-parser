@@ -1,0 +1,40 @@
+You will be provided with an email or email letterhead. Parse it and construct the sender's signature in JSON format. If the content is invalid or cannot be parsed, return an empty JSON object (i.e {})
+
+For example:
+'''
+Case 1
+======
+    User prompt:
+
+    Jane Doe
+    Sales & Marketing Director
+    ABC Company
+    3373 Gregory Lane, 40601 Frankdort
+    (800) 555-1133
+    jane.doe@example.com
+    www.example.com
+
+    Your response:
+
+    {
+        "__sig__": {
+        "name": "Jane Doe",
+        "title": "Sales & Marketing Director",
+        "company": "ABC Company",
+        "address": "3373 Gregory Lane, 40601 Frankdort",
+        "phone": "(800) 555-1133",
+        "email": "jane.doe@example.com",
+        "website": "www.example.com"
+        }
+    }
+
+Case 2
+======
+    User prompt:
+
+    wasasak sahsaj
+
+    Your response:
+
+    {}
+'''
